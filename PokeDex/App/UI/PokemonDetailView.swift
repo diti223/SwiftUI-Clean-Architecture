@@ -10,7 +10,7 @@ import SwiftUI
 struct PokemonDetailView: View {
     var id: Int
     
-    @StateObject private var viewModel: PokemonDetailViewModel = PokemonDetailViewModel()
+    @ObservedObject var viewModel: PokemonDetailViewModel
     
     var body: some View {
         VStack {
@@ -41,6 +41,6 @@ struct PokemonDetailView: View {
 
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonDetailView(id: 1)
+        PokemonDetailView(id: 1, viewModel: PokemonDetailViewModel())
     }
 }
