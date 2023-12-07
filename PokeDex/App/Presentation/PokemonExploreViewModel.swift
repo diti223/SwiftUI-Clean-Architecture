@@ -30,7 +30,7 @@ class PokemonExploreViewModel: ObservableObject {
     func loadPokemonList() {
         Task {
             do {
-                let pokemonEntityList = try await getPokemonListUseCase.execute(limit: 20, offset: offset)
+                let pokemonEntityList = try await getPokemonListUseCase.fetchPokemons(limit: 20, offset: offset)
                 pokemonList += pokemonEntityList.compactMap({ pokemon in PokemonModel(pokemon: pokemon) })
             } catch {
                 print(error.localizedDescription)

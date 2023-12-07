@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ExploreRepository: ExploreRepositoryProtocol {
+class ExploreRepository: GetPokemonListUseCase {
     static let shared = ExploreRepository()
     
     private let exploreDataSource = ExploreDataSource()

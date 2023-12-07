@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DetailRepository: DetailRepositoryProtocol {
+class DetailRepository: GetPokemonDetailUseCase {
     static let shared = DetailRepository()
     
     private let detailDataSource = DetailDataSource()

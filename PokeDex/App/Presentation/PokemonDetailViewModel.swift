@@ -19,7 +19,7 @@ class PokemonDetailViewModel: ObservableObject {
     func loadDetail(id: Int) {
         Task {
             do {
-                guard let pokemonDetailEntity: PokemonDetailEntity = try await getPokemonDetailUseCase.execute(id: id) else {
+                guard let pokemonDetailEntity: PokemonDetailEntity = try await getPokemonDetailUseCase.fetchPokemonDetail(id: id) else {
                     return
                 }
                 
