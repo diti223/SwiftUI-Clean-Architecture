@@ -9,12 +9,12 @@ import SwiftUI
 
 struct PokemonExploreView<Detail: View>: View {
     @ObservedObject var viewModel: PokemonExploreViewModel
-    @ViewBuilder var detailViewProvider: (PokemonModel) -> Detail
+    @ViewBuilder var detailViewProvider: (Pokemon) -> Detail
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.pokemonList, id: \.self) { pokemon in
+                ForEach(viewModel.pokemons, id: \.self) { pokemon in
                     NavigationLink(destination: {
                         detailViewProvider(pokemon)
                     }, label: {

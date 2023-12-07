@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetPokemonListUseCase {
-    func fetchPokemons(limit: Int, offset: Int) async throws -> [PokemonEntity]
+    func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon]
 //    let repository: ExploreRepositoryProtocol
 //    
 //    init(pokeDexRepository: ExploreRepositoryProtocol) {

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetPokemonDetailUseCase {
-    func fetchPokemonDetail(id: Int) async throws -> PokemonDetailEntity?
+    func fetchPokemonDetail(id: Int) async throws -> PokemonDetails?
 //    let repository: DetailRepositoryProtocol
 //    
 //    init(repository: DetailRepositoryProtocol) {

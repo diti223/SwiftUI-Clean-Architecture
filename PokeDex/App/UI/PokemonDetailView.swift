@@ -14,27 +14,32 @@ struct PokemonDetailView: View {
     
     var body: some View {
         VStack {
-            if viewModel.pokemonDetail == nil {
-                Text("Loading...")
+            if let details = viewModel.pokemonDetails {
+                makeContent(details: details)
             } else {
-                AsyncImage(url: viewModel.pokemonDetail?.pokemon.imageURL) { image in
-                    image.image?.resizable()
-                }
-                .scaledToFit()
-                
-                Text(viewModel.pokemonDetail?.pokemon.name ?? "")
-                    .font(.title)
-                
-                HStack {
-                    Text("Height: \(viewModel.pokemonDetail?.height ?? 0)")
-                        .font(.subheadline)
-                    Text("Weight: \(viewModel.pokemonDetail?.weight ?? 0)")
-                        .font(.subheadline)
-                }
+                Text("Loading...")
             }
         }
         .task {
             viewModel.loadDetail(id: id)
+        }
+    }
+    
+    @ViewBuilder
+    func makeContent(details: PokemonDetails) ->  some View {
+        AsyncImage(url: details.pokemon.imageURL) { image in
+            image.image?.resizable()
+        }
+        .scaledToFit()
+        
+        Text(details.pokemon.name)
+            .font(.title)
+        
+        HStack {
+            Text("Height: \(details.height)")
+                .font(.subheadline)
+            Text("Weight: \(details.weight)")
+                .font(.subheadline)
         }
     }
 }

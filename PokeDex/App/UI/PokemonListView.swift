@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PokemonListView: View {
-    var pokemon: PokemonModel
+    var pokemon: Pokemon
 
     var body: some View {
         HStack {

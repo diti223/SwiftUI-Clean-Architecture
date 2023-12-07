@@ -12,13 +12,26 @@ class DetailRepository: GetPokemonDetailUseCase {
     
     private let detailDataSource = DetailDataSource()
     
-    func fetchPokemonDetail(id: Int) async throws -> PokemonDetailEntity? {
+    func fetchPokemonDetail(id: Int) async throws -> PokemonDetails? {
         let pokemonDetailResponse: PokemonDetailReponseModel = try await detailDataSource.fetchPokemonDetail(id: id)
         
-        guard let pokemonDetail: PokemonDetailEntity = PokemonDetailEntity(pokemonDetailResponse: pokemonDetailResponse) else {
+        guard let pokemonDetail: PokemonDetails = PokemonDetails(pokemonDetailResponse: pokemonDetailResponse) else {
             return nil
         }
         
         return pokemonDetail
+    }
+}
+
+
+extension PokemonDetails {
+    init?(pokemonDetailResponse: PokemonDetailReponseModel) {
+        guard let pokemon = Pokemon(pokemonDetailResponse: pokemonDetailResponse) else {
+            return nil
+        }
+        
+        self.pokemon = pokemon
+        self.height = pokemonDetailResponse.height
+        self.weight = pokemonDetailResponse.weight
     }
 }

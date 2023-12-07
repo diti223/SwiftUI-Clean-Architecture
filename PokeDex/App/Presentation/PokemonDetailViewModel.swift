@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class PokemonDetailViewModel: ObservableObject {
     let getPokemonDetailUseCase: GetPokemonDetailUseCase
-    @Published var pokemonDetail: PokemonDetailModel?
+    @Published var pokemonDetails: PokemonDetails?
         
     init(getPokemonDetailUseCase: GetPokemonDetailUseCase) {
         self.getPokemonDetailUseCase = getPokemonDetailUseCase
@@ -19,11 +19,7 @@ class PokemonDetailViewModel: ObservableObject {
     func loadDetail(id: Int) {
         Task {
             do {
-                guard let pokemonDetailEntity: PokemonDetailEntity = try await getPokemonDetailUseCase.fetchPokemonDetail(id: id) else {
-                    return
-                }
-                
-                self.pokemonDetail = PokemonDetailModel(pokemonDetail: pokemonDetailEntity)
+                self.pokemonDetails = try await getPokemonDetailUseCase.fetchPokemonDetail(id: id)
             } catch {
                 print("Error: \(error)")
             }
