@@ -11,7 +11,9 @@ import SwiftUI
 struct PokeDexApp: App {
     var body: some Scene {
         WindowGroup {
-            PokemonExploreView(viewModel: PokemonExploreViewModel())
+            PokemonExploreView(viewModel: .init(getPokemonListUseCase: .init(pokeDexRepository: ExploreRepository.shared))) { pokemon in
+                PokemonDetailView(id: pokemon.id, viewModel: .init(getPokemonDetailUseCase: .init(repository: DetailRepository.shared)))
+            }
         }
     }
 }

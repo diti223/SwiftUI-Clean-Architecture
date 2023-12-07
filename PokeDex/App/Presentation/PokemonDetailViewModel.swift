@@ -9,9 +9,12 @@ import Foundation
 
 @MainActor
 class PokemonDetailViewModel: ObservableObject {
-    let getPokemonDetailUseCase = GetPokemonDetailUseCase(repository: DetailRepository())
-    
+    let getPokemonDetailUseCase: GetPokemonDetailUseCase
     @Published var pokemonDetail: PokemonDetailModel?
+        
+    init(getPokemonDetailUseCase: GetPokemonDetailUseCase) {
+        self.getPokemonDetailUseCase = getPokemonDetailUseCase
+    }
     
     func loadDetail(id: Int) {
         Task {

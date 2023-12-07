@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct PokemonExploreView: View {
+struct PokemonExploreView<Detail: View>: View {
     @ObservedObject var viewModel: PokemonExploreViewModel
+    @ViewBuilder var detailViewProvider: (PokemonModel) -> Detail
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(viewModel.pokemonList, id: \.self) { pokemon in
                     NavigationLink(destination: {
-                        PokemonDetailView(id: pokemon.id, viewModel: PokemonDetailViewModel())
+                        detailViewProvider(pokemon)
                     }, label: {
                         PokemonListView(pokemon: pokemon)
                             .onAppear(perform: {
@@ -33,6 +34,8 @@ struct PokemonExploreView: View {
 
 struct PokemonExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonExploreView(viewModel: .init())
+        PokemonExploreView(viewModel: .init(getPokemonListUseCase: .init(pokeDexRepository: ExploreRepository.shared)), detailViewProvider: { pokemon in
+            PokemonDetailView(id: pokemon.id, viewModel: .init(getPokemonDetailUseCase: .init(repository: DetailRepository.shared)))
+        })
     }
 }

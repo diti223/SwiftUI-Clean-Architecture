@@ -9,10 +9,16 @@ import Foundation
 
 @MainActor
 class PokemonExploreViewModel: ObservableObject {
-    private let getPokemonListUseCase: GetPokemonListUseCase = GetPokemonListUseCase(pokeDexRepository: ExploreRepository.shared)
+    private let getPokemonListUseCase: GetPokemonListUseCase
     
-    @Published var pokemonList: [PokemonModel] = [PokemonModel]()
+    @Published var pokemonList: [PokemonModel] = []
     @Published var offset: Int = 20
+    
+    init(getPokemonListUseCase: GetPokemonListUseCase) {
+        self.getPokemonListUseCase = getPokemonListUseCase
+        self.pokemonList = pokemonList
+        self.offset = offset
+    }
     
     func handleOnAppear(pokemon: PokemonModel) {
         guard pokemonList.last == pokemon else { return }
