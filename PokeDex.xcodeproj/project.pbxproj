@@ -74,6 +74,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AA60C3E2B2199D00067BE77 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6C2B26502A9CA97E003E951F /* PokemonListView.swift */,
+				6C2B26542A9CB506003E951F /* PokemonDetailView.swift */,
+				6C2B26122A98B9A6003E951F /* PokemonExploreView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3AA60C3F2B2199E70067BE77 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6CCC41EC2AA4C94400EE93D2 /* PokemonDetailViewModel.swift */,
+				6CCC41E42AA0D25900EE93D2 /* PokemonExploreViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3AA60C402B2199F60067BE77 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6CCC41E62AA0D2C400EE93D2 /* PokemonModel.swift */,
+				6CCC41EE2AA4CB8C00EE93D2 /* PokemonDetailModel.swift */,
+				3AA60C432B219A740067BE77 /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3AA60C422B219A630067BE77 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6C2B26582A9CC163003E951F /* PokemonDetailEntity.swift */,
+				6C2B264A2A9C9BC7003E951F /* PokemonEntity.swift */,
+				6CCC41D72AA0A51A00EE93D2 /* DetailDataSource.swift */,
+				6C2B263C2A9AFA0E003E951F /* PokemonResponseModel.swift */,
+				6C2B26522A9CB187003E951F /* PokemonListResponseModel.swift */,
+				6C2B26562A9CB581003E951F /* PokemonDetailResponseModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		3AA60C432B219A740067BE77 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				6C2B26482A9C99C0003E951F /* ExploreRepositoryProtocol.swift */,
+				6CCC41DE2AA0A59B00EE93D2 /* DetailRepositoryProtocol.swift */,
+				6C2B265A2A9D8E3F003E951F /* GetPokemonDetailUseCase.swift */,
+				6CCC41D92AA0A56600EE93D2 /* DetailRepository.swift */,
+				6C2B264E2A9CA5BA003E951F /* GetPokemonListUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		3AA60C442B219AE40067BE77 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				6C2B26102A98B9A6003E951F /* PokeDexApp.swift */,
+				6C2B26432A9B2882003E951F /* Constants.swift */,
+				6C2B26392A9AF1EC003E951F /* NetworkUtils.swift */,
+				6C2B26412A9B2735003E951F /* ExploreDataSource.swift */,
+				6C2B26462A9C935F003E951F /* ExploreRepository.swift */,
+				3AA60C422B219A630067BE77 /* Detail */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		6C2B26042A98B9A6003E951F = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				6C2B26272A9A2424003E951F /* App */,
-				6C2B262A2A9A3EF9003E951F /* Core */,
-				6CCC41CF2AA0A47700EE93D2 /* FeatureDetail */,
-				6CCC41CD2AA0A43500EE93D2 /* FeatureExplore */,
 				6C2B26142A98B9A7003E951F /* Assets.xcassets */,
 				6C2B26162A98B9A7003E951F /* Preview Content */,
 			);
@@ -111,263 +175,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		6C2B26242A9A240C003E951F /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B264D2A9CA046003E951F /* Models */,
-				6C2B26322A9AEEA6003E951F /* Repositories */,
-				6C2B26312A9AEEA2003E951F /* DataSources */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		6C2B26252A9A2412003E951F /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26302A9AEE9D003E951F /* Entities */,
-				6C2B262F2A9AEE91003E951F /* UseCases */,
-				6C2B262E2A9AEE8D003E951F /* Repositories */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		6C2B26262A9A2419003E951F /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41E92AA4C91D00EE93D2 /* Views */,
-				6CCC41EA2AA4C92300EE93D2 /* ViewModels */,
-				6CCC41EB2AA4C92800EE93D2 /* Models */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
 		6C2B26272A9A2424003E951F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				6C2B26102A98B9A6003E951F /* PokeDexApp.swift */,
+				3AA60C442B219AE40067BE77 /* Infrastructure */,
+				3AA60C3F2B2199E70067BE77 /* Presentation */,
+				3AA60C3E2B2199D00067BE77 /* UI */,
+				3AA60C402B2199F60067BE77 /* Domain */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		6C2B262A2A9A3EF9003E951F /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B262D2A9AEE78003E951F /* Components */,
-				6C2B26362A9AEF2D003E951F /* Utils */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		6C2B262D2A9AEE78003E951F /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26502A9CA97E003E951F /* PokemonListView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		6C2B262E2A9AEE8D003E951F /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26482A9C99C0003E951F /* ExploreRepositoryProtocol.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		6C2B262F2A9AEE91003E951F /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B264E2A9CA5BA003E951F /* GetPokemonListUseCase.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		6C2B26302A9AEE9D003E951F /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B264A2A9C9BC7003E951F /* PokemonEntity.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		6C2B26312A9AEEA2003E951F /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26412A9B2735003E951F /* ExploreDataSource.swift */,
-			);
-			path = DataSources;
-			sourceTree = "<group>";
-		};
-		6C2B26322A9AEEA6003E951F /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26462A9C935F003E951F /* ExploreRepository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		6C2B26362A9AEF2D003E951F /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26432A9B2882003E951F /* Constants.swift */,
-				6C2B26392A9AF1EC003E951F /* NetworkUtils.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		6C2B264D2A9CA046003E951F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B263C2A9AFA0E003E951F /* PokemonResponseModel.swift */,
-				6C2B26522A9CB187003E951F /* PokemonListResponseModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		6CCC41CD2AA0A43500EE93D2 /* FeatureExplore */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41CE2AA0A46D00EE93D2 /* Presentation */,
-				6C2B26252A9A2412003E951F /* Domain */,
-				6C2B26242A9A240C003E951F /* Data */,
-			);
-			path = FeatureExplore;
-			sourceTree = "<group>";
-		};
-		6CCC41CE2AA0A46D00EE93D2 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41E12AA0D20A00EE93D2 /* Views */,
-				6CCC41E32AA0D23C00EE93D2 /* ViewModels */,
-				6CCC41E02AA0D20600EE93D2 /* Models */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		6CCC41CF2AA0A47700EE93D2 /* FeatureDetail */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26262A9A2419003E951F /* Presentation */,
-				6CCC41D02AA0A49600EE93D2 /* Domain */,
-				6CCC41D12AA0A49A00EE93D2 /* Data */,
-			);
-			path = FeatureDetail;
-			sourceTree = "<group>";
-		};
-		6CCC41D02AA0A49600EE93D2 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41DC2AA0A58500EE93D2 /* UseCases */,
-				6CCC41DD2AA0A58900EE93D2 /* Repositories */,
-				6CCC41DB2AA0A58000EE93D2 /* Entities */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		6CCC41D12AA0A49A00EE93D2 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41D62AA0A4C800EE93D2 /* DataSources */,
-				6CCC41D52AA0A4BC00EE93D2 /* Repositories */,
-				6CCC41D42AA0A4AA00EE93D2 /* Models */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		6CCC41D42AA0A4AA00EE93D2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26562A9CB581003E951F /* PokemonDetailResponseModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		6CCC41D52AA0A4BC00EE93D2 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41D92AA0A56600EE93D2 /* DetailRepository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		6CCC41D62AA0A4C800EE93D2 /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41D72AA0A51A00EE93D2 /* DetailDataSource.swift */,
-			);
-			path = DataSources;
-			sourceTree = "<group>";
-		};
-		6CCC41DB2AA0A58000EE93D2 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26582A9CC163003E951F /* PokemonDetailEntity.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		6CCC41DC2AA0A58500EE93D2 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B265A2A9D8E3F003E951F /* GetPokemonDetailUseCase.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		6CCC41DD2AA0A58900EE93D2 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41DE2AA0A59B00EE93D2 /* DetailRepositoryProtocol.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		6CCC41E02AA0D20600EE93D2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41E62AA0D2C400EE93D2 /* PokemonModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		6CCC41E12AA0D20A00EE93D2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26122A98B9A6003E951F /* PokemonExploreView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		6CCC41E32AA0D23C00EE93D2 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41E42AA0D25900EE93D2 /* PokemonExploreViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		6CCC41E92AA4C91D00EE93D2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				6C2B26542A9CB506003E951F /* PokemonDetailView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		6CCC41EA2AA4C92300EE93D2 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41EC2AA4C94400EE93D2 /* PokemonDetailViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		6CCC41EB2AA4C92800EE93D2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				6CCC41EE2AA4CB8C00EE93D2 /* PokemonDetailModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
