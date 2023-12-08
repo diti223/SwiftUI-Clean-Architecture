@@ -9,13 +9,14 @@ import SwiftUI
 
 @main
 struct PokeDexApp: App {
+    let network = URLSessionHTTPClient(session: .shared, timeout: 30)
     var body: some Scene {
         WindowGroup {
             PokemonExploreView(
-                viewModel: .init(getPokemonListUseCase: APIGetPokemonListUseCase(network: .shared, endpoint: .getPokemonList(limit: 20, offset: 0))), detailViewProvider: { pokemon in
+                viewModel: .init(getPokemonListUseCase: APIGetPokemonListUseCase(network: network, endpoint: .getPokemonList(limit: 20, offset: 0))), detailViewProvider: { pokemon in
                     PokemonDetailView(
                         id: pokemon.id,
-                        viewModel: .init(getPokemonDetailUseCase: APIGetPokemonDetailUseCase(network: .shared))
+                        viewModel: .init(getPokemonDetailUseCase: APIGetPokemonDetailUseCase(network: network))
                     )
                 }
             )

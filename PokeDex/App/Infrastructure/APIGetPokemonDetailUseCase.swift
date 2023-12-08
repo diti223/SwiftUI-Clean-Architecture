@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIGetPokemonDetailUseCase: GetPokemonDetailUseCase {
-    let network: NetworkUtils
+    let network: HTTPClient
     
     
     func fetchPokemonDetail(id: Int) async throws -> PokemonDetails? {

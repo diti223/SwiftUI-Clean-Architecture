@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIGetPokemonListUseCase: GetPokemonListUseCase {
-    let network: NetworkUtils
+    let network: HTTPClient
     let endpoint: Constants.APIEndpoint
     
     private func fetch(limit: Int, offset: Int) async throws -> APIPokemonListResponse {
