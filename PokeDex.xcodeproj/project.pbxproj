@@ -62,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A327BEC2B2370CD008289FF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3A327BE82B2361D2008289FF /* HTTPClient+JSONDecoder.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3AA60C3E2B2199D00067BE77 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +92,7 @@
 		3AA60C402B2199F60067BE77 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3A327BEC2B2370CD008289FF /* Extensions */,
 				3AA60C472B21A34A0067BE77 /* Model */,
 				3AA60C432B219A740067BE77 /* UseCase */,
 			);
@@ -93,6 +102,7 @@
 		3AA60C432B219A740067BE77 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				6C2B26392A9AF1EC003E951F /* HTTPClient.swift */,
 				6C2B265A2A9D8E3F003E951F /* GetPokemonDetailUseCase.swift */,
 				6C2B264E2A9CA5BA003E951F /* GetPokemonListUseCase.swift */,
 			);
@@ -105,8 +115,6 @@
 				6C2B26102A98B9A6003E951F /* PokeDexApp.swift */,
 				3A327BEA2B236F29008289FF /* PokeAPIHTTPClient.swift */,
 				6C2B26432A9B2882003E951F /* Constants.swift */,
-				6C2B26392A9AF1EC003E951F /* HTTPClient.swift */,
-				3A327BE82B2361D2008289FF /* HTTPClient+JSONDecoder.swift */,
 				3A327BE62B2361B8008289FF /* URLSessionHTTPClient.swift */,
 				6C2B26412A9B2735003E951F /* APIGetPokemonListUseCase.swift */,
 				6CCC41D92AA0A56600EE93D2 /* APIGetPokemonDetailUseCase.swift */,
