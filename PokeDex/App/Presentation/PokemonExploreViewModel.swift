@@ -30,7 +30,7 @@ class PokemonExploreViewModel: ObservableObject {
     func loadPokemonList() {
         Task {
             do {
-                pokemons.append(contentsOf: try await getPokemonListUseCase.fetchPokemons(limit: 20, offset: offset))
+                pokemons.append(contentsOf: try await getPokemonListUseCase.execute((limit: 20, offset: offset)))
             } catch {
                 print(error.localizedDescription)
             }

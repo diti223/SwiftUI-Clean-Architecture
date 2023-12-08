@@ -34,17 +34,13 @@ struct PokemonExploreView<Detail: View>: View {
 
 struct PokemonExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonExploreView(viewModel: .init(getPokemonListUseCase: PreviewListUseCase()), detailViewProvider: { pokemon in
-//            PokemonDetailView(id: pokemon.id, viewModel: .init(getPokemonDetailUseCase: DetailRepository(network: .shared)))
+        PokemonExploreView(viewModel: .init(getPokemonListUseCase: .init { _ in
+            [
+                Pokemon(id: 1, name: "Pikachu")
+            ]
+        }), detailViewProvider: { pokemon in
             EmptyView()
         })
     }
 }
 
-private struct PreviewListUseCase: GetPokemonListUseCase {
-    func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon] {
-        [
-            Pokemon(id: 1, name: "Pikachu")
-        ]
-    }
-}

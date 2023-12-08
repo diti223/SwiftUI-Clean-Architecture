@@ -7,16 +7,19 @@
 
 import Foundation
 
-struct APIGetPokemonListUseCase: GetPokemonListUseCase {
-    let network: HTTPClient
+struct APIGetPokemonListUseCase  {
+    let httpClient: HTTPClient
     
     private func fetch(limit: Int, offset: Int) async throws -> APIPokemonListResponse {
-        return try await network.fetch(from: "/pokemon?limit=\(limit)&offset=\(offset)")
+        return try await httpClient.fetch(from: "/pokemon?limit=\(limit)&offset=\(offset)")
     }
     
-    func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon] {
-        try await fetch(limit: limit, offset: offset).results.compactMap { response in
-            Pokemon(pokemonResponse: response)
+    func make() -> GetPokemonListUseCase {
+        .init { request in
+            let (limit, offset) = request
+            return try await fetch(limit: limit, offset: offset).results.compactMap { response in
+                Pokemon(pokemonResponse: response)
+            }
         }
     }
 }

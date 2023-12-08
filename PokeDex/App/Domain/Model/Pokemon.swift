@@ -8,7 +8,8 @@
 import Foundation
 
 struct Pokemon: Hashable {
-    let id: Int
+    typealias ID = Int
+    let id: ID
     let name: String
     var imageURL: URL?
 }

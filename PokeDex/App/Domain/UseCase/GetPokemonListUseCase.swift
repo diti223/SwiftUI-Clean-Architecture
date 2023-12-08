@@ -7,6 +7,10 @@
 
 import Foundation
 
-protocol GetPokemonListUseCase {
-    func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon]
-}
+//protocol GetPokemonListUseCase {
+//    func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon]
+//}
+
+
+typealias PageRequest = (limit: Int, offset: Int)
+typealias GetPokemonListUseCase = AsyncUseCase<PageRequest, [Pokemon]>

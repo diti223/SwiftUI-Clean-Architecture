@@ -46,13 +46,8 @@ struct PokemonDetailView: View {
 
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonDetailView(id: 1, viewModel: .init(getPokemonDetailUseCase: PreviewDetails()))
-    }
-}
-
-
-private struct PreviewDetails: GetPokemonDetailUseCase {
-    func fetchPokemonDetail(id: Int) async throws -> PokemonDetails? {
-        PokemonDetails(pokemon: Pokemon(id: 1, name: "Pika"), height: 10, weight: 20)
+        PokemonDetailView(id: 1, viewModel: .init(getPokemonDetailUseCase: .init { _ in
+            PokemonDetails(pokemon: Pokemon(id: 1, name: "Pika"), height: 10, weight: 20)
+        }))
     }
 }
