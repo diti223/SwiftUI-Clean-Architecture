@@ -12,7 +12,7 @@ struct PokeDexApp: App {
     var body: some Scene {
         WindowGroup {
             PokemonExploreView(viewModel: .init(getPokemonListUseCase: ExploreRepository.shared)) { pokemon in
-                PokemonDetailView(id: pokemon.id, viewModel: .init(getPokemonDetailUseCase: DetailRepository.shared))
+                PokemonDetailView(id: pokemon.id, viewModel: .init(getPokemonDetailUseCase: DetailRepository(network: .shared)))
             }
         }
     }

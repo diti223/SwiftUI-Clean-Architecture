@@ -35,7 +35,8 @@ struct PokemonExploreView<Detail: View>: View {
 struct PokemonExploreView_Previews: PreviewProvider {
     static var previews: some View {
         PokemonExploreView(viewModel: .init(getPokemonListUseCase: ExploreRepository.shared), detailViewProvider: { pokemon in
-            PokemonDetailView(id: pokemon.id, viewModel: .init(getPokemonDetailUseCase: DetailRepository.shared))
+//            PokemonDetailView(id: pokemon.id, viewModel: .init(getPokemonDetailUseCase: DetailRepository(network: .shared)))
+            EmptyView()
         })
     }
 }

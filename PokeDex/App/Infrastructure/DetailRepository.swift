@@ -7,13 +7,15 @@
 
 import Foundation
 
-class DetailRepository: GetPokemonDetailUseCase {
-    static let shared = DetailRepository()
+struct DetailRepository: GetPokemonDetailUseCase {
+    let network: NetworkUtils
     
-    private let detailDataSource = DetailDataSource()
     
     func fetchPokemonDetail(id: Int) async throws -> PokemonDetails? {
-        let pokemonDetailResponse: PokemonDetailReponseModel = try await detailDataSource.fetchPokemonDetail(id: id)
+        guard let url: URL = Constants.APIEndpoint.getPokemonDetails(id: id).url else {
+            throw URLError(.badURL)
+        }
+        let pokemonDetailResponse: PokemonDetailReponseModel = try await network.fetch(from: url)
         
         guard let pokemonDetail: PokemonDetails = PokemonDetails(pokemonDetailResponse: pokemonDetailResponse) else {
             return nil
