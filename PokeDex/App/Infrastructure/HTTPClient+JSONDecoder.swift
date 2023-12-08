@@ -8,8 +8,8 @@
 import Foundation
 
 extension HTTPClient {
-    func fetch<T: Decodable>(from url: URL) async throws -> JSONResponse<T> {
-        let response = try await self.request(url: url)
+    func fetch<T: Decodable>(from path: String) async throws -> JSONResponse<T> {
+        let response = try await self.request(path: path)
         let json = JSONResponse(
             object: try JSONDecoder().decode(T.self, from: response.body),
             statusCode: response.statusCode
@@ -17,8 +17,8 @@ extension HTTPClient {
         return json
     }
     
-    func fetch<T: Decodable>(from url: URL) async throws -> T {
-        try await self.fetch(from: url).object
+    func fetch<T: Decodable>(from path: String) async throws -> T {
+        try await self.fetch(from: path).object
     }
 }
 

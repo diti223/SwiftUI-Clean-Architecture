@@ -9,11 +9,12 @@ import Foundation
 
 
 struct URLSessionHTTPClient: HTTPClient {
+    let baseURL: URL
     let session: URLSession
     let timeout: TimeInterval
     
-    func request(url: URL) async throws -> HTTPResponse {
-        let request = URLRequest(url: url)
+    func request(path: String) async throws -> HTTPResponse {
+        let request = URLRequest(url: baseURL.appending(path: path))
         
         let (data, response) = try await session.data(for: request)
         

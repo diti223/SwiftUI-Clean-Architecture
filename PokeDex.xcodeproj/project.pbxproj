@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A327BE72B2361B8008289FF /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A327BE62B2361B8008289FF /* URLSessionHTTPClient.swift */; };
 		3A327BE92B2361D2008289FF /* HTTPClient+JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A327BE82B2361D2008289FF /* HTTPClient+JSONDecoder.swift */; };
+		3A327BEB2B236F29008289FF /* PokeAPIHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A327BEA2B236F29008289FF /* PokeAPIHTTPClient.swift */; };
 		6C2B26112A98B9A6003E951F /* PokeDexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2B26102A98B9A6003E951F /* PokeDexApp.swift */; };
 		6C2B26132A98B9A6003E951F /* PokemonExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2B26122A98B9A6003E951F /* PokemonExploreView.swift */; };
 		6C2B26152A98B9A7003E951F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C2B26142A98B9A7003E951F /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		3A327BE62B2361B8008289FF /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		3A327BE82B2361D2008289FF /* HTTPClient+JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPClient+JSONDecoder.swift"; sourceTree = "<group>"; };
+		3A327BEA2B236F29008289FF /* PokeAPIHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAPIHTTPClient.swift; sourceTree = "<group>"; };
 		6C2B260D2A98B9A6003E951F /* PokeDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2B26102A98B9A6003E951F /* PokeDexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDexApp.swift; sourceTree = "<group>"; };
 		6C2B26122A98B9A6003E951F /* PokemonExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonExploreView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				6C2B26102A98B9A6003E951F /* PokeDexApp.swift */,
+				3A327BEA2B236F29008289FF /* PokeAPIHTTPClient.swift */,
 				6C2B26432A9B2882003E951F /* Constants.swift */,
 				6C2B26392A9AF1EC003E951F /* HTTPClient.swift */,
 				3A327BE82B2361D2008289FF /* HTTPClient+JSONDecoder.swift */,
@@ -239,6 +242,7 @@
 				3A327BE92B2361D2008289FF /* HTTPClient+JSONDecoder.swift in Sources */,
 				6C2B26132A98B9A6003E951F /* PokemonExploreView.swift in Sources */,
 				6CCC41E72AA0D2C400EE93D2 /* Pokemon.swift in Sources */,
+				3A327BEB2B236F29008289FF /* PokeAPIHTTPClient.swift in Sources */,
 				6C2B263A2A9AF1EC003E951F /* HTTPClient.swift in Sources */,
 				6C2B26112A98B9A6003E951F /* PokeDexApp.swift in Sources */,
 				6CCC41DA2AA0A56600EE93D2 /* APIGetPokemonDetailUseCase.swift in Sources */,

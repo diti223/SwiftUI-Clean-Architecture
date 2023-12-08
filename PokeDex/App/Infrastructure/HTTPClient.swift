@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HTTPClient {
-    func request(url: URL) async throws -> HTTPResponse
+    func request(path: String) async throws -> HTTPResponse
 }
 
 struct HTTPResponse {
