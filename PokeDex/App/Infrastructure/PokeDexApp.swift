@@ -9,17 +9,20 @@ import SwiftUI
 
 @main
 struct PokeDexApp: App {
-    let httpClient = PokeAPIHTTPClient(session: .shared)
+    let useCaseContainer = UseCaseContainer.makeAPI(httpClient: PokeAPIHTTPClient(session: .shared))
+    
     var body: some Scene {
         WindowGroup {
             PokemonExploreView(
-                viewModel: .init(getPokemonListUseCase: APIGetPokemonListUseCase(httpClient: httpClient).make()), detailViewProvider: { pokemon in
+                viewModel: .init(getPokemonListUseCase: useCaseContainer.list), detailViewProvider: { pokemon in
                     PokemonDetailView(
                         id: pokemon.id,
-                        viewModel: .init(getPokemonDetailUseCase: APIGetPokemonDetailUseCase(httpClient: httpClient).make())
+                        viewModel: .init(getPokemonDetailUseCase: useCaseContainer.detail)
                     )
                 }
             )
         }
     }
 }
+
+

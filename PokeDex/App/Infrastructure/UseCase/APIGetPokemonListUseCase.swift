@@ -24,11 +24,7 @@ struct APIGetPokemonListUseCase  {
     }
 }
 
-
-
-
 extension Pokemon {
-    
     private static let pokeApiArtworkURL: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/%d.png"
     init?(pokemonResponse: APIPokemonListResponse.Result) {
         guard let urlComponents = URLComponents(string: pokemonResponse.url),

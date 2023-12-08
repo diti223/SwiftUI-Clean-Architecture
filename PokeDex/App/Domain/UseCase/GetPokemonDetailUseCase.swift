@@ -7,8 +7,4 @@
 
 import Foundation
 
-//protocol GetPokemonDetailUseCase {
-//    func fetchPokemonDetail(id: Int) async throws -> PokemonDetails?
-//}
-
 typealias GetPokemonDetailUseCase = AsyncUseCase<Pokemon.ID, PokemonDetails?>
