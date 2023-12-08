@@ -17,10 +17,10 @@ struct PokeAPIHTTPClient: HTTPClient {
     }
     
     func request(path: String) async throws -> HTTPResponse {
-        URLSessionHTTPClient(
+        try await URLSessionHTTPClient(
             baseURL: Self.baseURL,
             session: session,
             timeout: Self.timeout
-        )
+        ).request(path: path)
     }
 }

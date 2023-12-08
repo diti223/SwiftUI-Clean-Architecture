@@ -16,7 +16,7 @@ struct PokeDexApp: App {
                 viewModel: .init(getPokemonListUseCase: APIGetPokemonListUseCase(network: httpClient, endpoint: .getPokemonList(limit: 20, offset: 0))), detailViewProvider: { pokemon in
                     PokemonDetailView(
                         id: pokemon.id,
-                        viewModel: .init(getPokemonDetailUseCase: APIGetPokemonDetailUseCase(network: network))
+                        viewModel: .init(getPokemonDetailUseCase: APIGetPokemonDetailUseCase(network: httpClient))
                     )
                 }
             )

@@ -9,14 +9,10 @@ import Foundation
 
 struct APIGetPokemonListUseCase: GetPokemonListUseCase {
     let network: HTTPClient
-    let endpoint: Constants.APIEndpoint
+    let endpoint: Constants.APIEndpoint 
     
     private func fetch(limit: Int, offset: Int) async throws -> APIPokemonListResponse {
-        guard let url: URL = endpoint.url else {
-            throw URLError(.badURL)
-        }
-        
-        return try await network.fetch(from: url)
+        return try await network.fetch(from: endpoint.path)
     }
     
     func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon] {
@@ -30,6 +26,8 @@ struct APIGetPokemonListUseCase: GetPokemonListUseCase {
 
 
 extension Pokemon {
+    
+    private static let pokeApiArtworkURL: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/%d.png"
     init?(pokemonResponse: APIPokemonListResponse.Result) {
         guard let urlComponents = URLComponents(string: pokemonResponse.url),
               let idString = urlComponents.path.split(separator: "/").last,
@@ -39,7 +37,7 @@ extension Pokemon {
         
         self.id = id
         self.name = pokemonResponse.name
-        self.imageURL = Constants.APIEndpoint.getPokemonImage(id: id).url
+        self.imageURL = URL(string: String(format: Self.pokeApiArtworkURL, id))!
     }
     
 }
