@@ -7,10 +7,8 @@
 
 import Foundation
 
-class ExploreRepository: GetPokemonListUseCase {
-    static let shared = ExploreRepository()
-    
-    private let exploreDataSource = ExploreDataSource()
+struct ExploreRepository: GetPokemonListUseCase {
+    let exploreDataSource: ExploreDataSource
     
     func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon] {
         let pokemonsListResponse: PokemonListResponseModel = try await exploreDataSource.fetchPokemons(limit: limit, offset: offset)
