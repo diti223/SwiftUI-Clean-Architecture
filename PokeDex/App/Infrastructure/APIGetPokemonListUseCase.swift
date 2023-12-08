@@ -9,10 +9,9 @@ import Foundation
 
 struct APIGetPokemonListUseCase: GetPokemonListUseCase {
     let network: HTTPClient
-    let endpoint: Constants.APIEndpoint 
     
     private func fetch(limit: Int, offset: Int) async throws -> APIPokemonListResponse {
-        return try await network.fetch(from: endpoint.path)
+        return try await network.fetch(from: "/pokemon?limit=\(limit)&offset=\(offset)")
     }
     
     func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon] {

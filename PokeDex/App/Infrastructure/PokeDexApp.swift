@@ -13,7 +13,7 @@ struct PokeDexApp: App {
     var body: some Scene {
         WindowGroup {
             PokemonExploreView(
-                viewModel: .init(getPokemonListUseCase: APIGetPokemonListUseCase(network: httpClient, endpoint: .getPokemonList(limit: 20, offset: 0))), detailViewProvider: { pokemon in
+                viewModel: .init(getPokemonListUseCase: APIGetPokemonListUseCase(network: httpClient)), detailViewProvider: { pokemon in
                     PokemonDetailView(
                         id: pokemon.id,
                         viewModel: .init(getPokemonDetailUseCase: APIGetPokemonDetailUseCase(network: httpClient))

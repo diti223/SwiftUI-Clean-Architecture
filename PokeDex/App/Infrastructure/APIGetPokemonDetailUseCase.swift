@@ -17,7 +17,7 @@ struct APIGetPokemonDetailUseCase: GetPokemonDetailUseCase {
 //        }
 //        
 //        return try await NetworkUtils.shared.fetch(from: url)
-        let response: APIGetPokemonDetailResponse = try await network.fetch(from: Constants.APIEndpoint.getPokemonDetails(id: id).path)
+        let response: APIGetPokemonDetailResponse = try await network.fetch(from: "pokemon/\(id)/")
         
         guard let pokemonDetail: PokemonDetails = PokemonDetails(response: response) else {
             return nil

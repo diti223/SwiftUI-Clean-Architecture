@@ -23,7 +23,7 @@ class PokemonExploreViewModel: ObservableObject {
     func handleOnAppear(pokemon: Pokemon) {
         guard pokemons.last == pokemon else { return }
         
-        increaseOffset(value: Constants.pokeApiPokemonListlimit)
+        increaseOffset(value: 20)
         loadPokemonList()
     }
     
