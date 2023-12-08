@@ -20,28 +20,17 @@ struct APIGetPokemonListUseCase: GetPokemonListUseCase {
     }
     
     func fetchPokemons(limit: Int, offset: Int) async throws -> [Pokemon] {
-//        let pokemonsListResponse: APIPokemonListResponse = try await exploreDataSource.fetchPokemons(limit: limit, offset: offset)
-//        let pokemonResponses: [APIGetPokemonResponse] = pokemonsListResponse.results
-//        let pokemonEntities: [Pokemon] = pokemonResponses.compactMap { pokemon in
-//            return Pokemon(pokemonResponse: pokemon)
-//        }
-//        
-//        return pokemonEntities
-        
         try await fetch(limit: limit, offset: offset).results.compactMap { response in
             Pokemon(pokemonResponse: response)
         }
     }
 }
 
-struct APIGetPokemonResponse: Decodable, Encodable {
-    let name: String
-    let url: String
-}
+
 
 
 extension Pokemon {
-    init?(pokemonResponse: APIGetPokemonResponse) {
+    init?(pokemonResponse: APIPokemonListResponse.Result) {
         guard let urlComponents = URLComponents(string: pokemonResponse.url),
               let idString = urlComponents.path.split(separator: "/").last,
               let id = Int(idString) else {
@@ -56,8 +45,12 @@ extension Pokemon {
 }
 
 struct APIPokemonListResponse: Codable {
+    struct Result: Codable {
+        let name: String
+        let url: String
+    }
     let count: Int
     let next: String?
     let previous: String?
-    let results: [APIGetPokemonResponse]
+    let results: [Result]
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkUtils {
+struct NetworkUtils {
     static let shared = NetworkUtils()
     
     func fetch<T: Codable>(from url: URL) async throws -> T {
