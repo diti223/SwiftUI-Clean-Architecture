@@ -7,7 +7,3 @@
 
 import Foundation
 
-struct PokemonResponseModel: Decodable, Encodable {
-    let name: String
-    let url: String
-}

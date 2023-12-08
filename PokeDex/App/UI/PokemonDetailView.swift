@@ -46,6 +46,6 @@ struct PokemonDetailView: View {
 
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonDetailView(id: 1, viewModel: .init(getPokemonDetailUseCase: DetailRepository(network: .shared)))
+        PokemonDetailView(id: 1, viewModel: .init(getPokemonDetailUseCase: APIGetPokemonDetailUseCase(network: .shared)))
     }
 }
